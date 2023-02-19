@@ -1,37 +1,24 @@
-import Categories from "./components/categories/categories.component"
+import Home from "./components/routes/home/home.component";
+import { Routes, Route } from "react-router-dom";
+import Navigation from "./components/routes/navigation/navigation.component";
+import SingIn from "./components/routes/SingIn/SingIn.component";
+
+const Shop=()=>{
+  return (
+    <h1>here is the shop</h1>
+  )
+}
 
 const App =()=>{
-    const categories =[
-        {
-          id: 1,
-          title:'Hats',
-          url:'https://i.ibb.co/cvpntL1/hats.png'
-        },
-        {
-          id: 2,
-          title:'Jackets',
-          url:'https://i.ibb.co/px2tCc3/jackets.png'
-        },
-        {
-          id: 3,
-          title:'Sneakers',
-          url:'https://i.ibb.co/0jqHpnp/sneakers.png'
-        },
-        {
-          id: 4,
-          title:'Womens',
-          url:'https://i.ibb.co/GCCdy8t/women.png'
-        },
-        {
-          id: 5,
-          title:'Mens',
-          url:'https://i.ibb.co/R70vBrQ/men.png'
-        }
-
-        
-      ]
-      return(
-        <Categories categories={categories}/>
-      )
+   return (
+    <Routes>
+      <Route path ='/' element ={<Navigation/>}>
+        <Route index element={<Home/>}/>
+        <Route path ='/shop' element ={<Shop/>}></Route>
+        <Route path ='/sing-in' element ={<SingIn/>}></Route>
+      </Route>
+    </Routes>
+    
+   ) 
 }
 export default App;
