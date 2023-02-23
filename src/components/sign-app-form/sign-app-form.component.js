@@ -1,6 +1,8 @@
 import {useState,useEffect} from 'react'
 import { createAuthUserWithEmailAndPassword,createUSerDocumentFromAuth } from '../../utiles/firebase/firebase.utilis'
 import FormInput from '../form-imput/form-imput.component'
+import './sing-app-form.styles.scss'
+import Button from '../Button/button.component'
 
 const defaultformFields ={
     displayName:'',
@@ -42,14 +44,15 @@ const handleChange=(event)=>{
 }
 
     return(
-        <div>
-            <h1>Sign up with your email and password</h1>
+        <div className='sign-up-container'>
+            <h2>Don't have an account?</h2>
+            <span>Sign up with your email and password</span>
             <form onSubmit={handleSubmit}>
                <FormInput label ='Display name' type='text' required onChange={handleChange} name ='displayName' value ={displayName} /> 
                <FormInput label ='Email' type='email' required onChange={handleChange} name ='email' value ={email}/> 
                <FormInput label ='Password' required onChange={handleChange} name ='password' value ={password} /> 
                <FormInput label ='Confirm password' required onChange={handleChange} name ='confirmPassword' value ={confirmPassword}/> 
-               <button type='submit'>Sing Up</button>
+               <Button type='submit'>Sing Up</Button>
             </form>
         </div>
     )
